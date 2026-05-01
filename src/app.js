@@ -2,15 +2,15 @@ import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "url";
 import "dotenv/config";
-import session from "express-session";
-import ConnectPgSimple from "connect-pg-simple";
-
+import expressSession from "express-session";
+import { PrismaSessionStore } from "@quixo3/prisma-session-store";
+import passport from "./passport.js";
+import prisma from "./../lib/prisma.js";
 
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const pgSession = new ConnectPgSimple(session);
 const PORT = process.env.PORT || 3000;
 
 const app = express();
@@ -20,8 +20,26 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
+app.use(
+    expressSession({
+        cookie: {
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+        },
+        secret: "A santa at nasa",
+        resave: false,
+        saveUninitialized: false,
+        store: new PrismaSessionStore(
+            prisma,
+            {
+                checkPeriod: 2 * 60* 1000,
+                dbRecordIdIsSessionId: true,
+                dbRecordIdFunction: undefined,
+            }
+        )
+    })
+);
 
-
+app.use(passport.session());
 
 app.listen(PORT, (err) => {
     if (err) {
