@@ -15,10 +15,11 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  email String @unique
-  password String
-  name String?
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  password  String
+  name      String?
+  files     File[]
 }
 
 model Session {
@@ -26,4 +27,21 @@ model Session {
   sid       String @unique
   data      String
   expiresAt DateTime
+}
+
+model File {
+  id      Int       @id @default(autoincrement())
+  user    User      @relation(fields: [userId], references: [id])
+  userId  Int
+  created DateTime  @default(now())
+  type    Type
+  url     String
+}
+
+enum Type {
+  Text
+  Image
+  Video
+  Audio
+  PDF
 }
