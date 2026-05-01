@@ -7,6 +7,7 @@ import { PrismaSessionStore } from "@quixo3/prisma-session-store";
 import passport from "./passport.js";
 import prisma from "./../lib/prisma.js";
 
+import index from "./routes/index.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -40,6 +41,8 @@ app.use(
 );
 
 app.use(passport.session());
+
+app.use("/", index);
 
 app.listen(PORT, (err) => {
     if (err) {
