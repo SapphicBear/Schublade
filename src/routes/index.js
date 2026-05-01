@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { indexCon } from "./../controllers/index.js";
+import {indexCon} from "./../controllers/index.js";
 const index = Router();
 
-index.get("/", indexCon.get);
+index.get("/", indexCon.get.bind(indexCon));
 
 export default index;
