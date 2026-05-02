@@ -47,10 +47,19 @@ ul, li {
 li {
     list-style: none;
 }
+:root {
+    /* Custom colors */
+    --white: rgb(246, 247, 255);
+    --black: rgb(21, 21, 22);
+    --light: #FCF8E8;
+    --green: #94B49F;
+    --orange: #ECB390;
+    --red: #DF7861;
+}
 
 body {
-    background: rgb(43, 42, 83);
-    color: white;
+    background: var(--black);
+    color: var(--white);
     display: grid;
     place-items: center;
     grid-template-rows: 100px 50px 1fr 100px;
