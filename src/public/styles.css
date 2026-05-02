@@ -55,6 +55,11 @@ li {
     --green: #94B49F;
     --orange: #ECB390;
     --red: #DF7861;
+
+    --red-alt: #D0384B;
+    --orange-alt: #E27E79;
+    --green-alt: #727F89;
+    --light-alt: #FAF1E0;
 }
 
 body {
