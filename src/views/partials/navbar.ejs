@@ -1,0 +1,20 @@
+<%
+    const buttons = [
+        { text: "Home", href: "/" },
+        { text: "Sign up", href: "/sign-up" },
+        { text: "Sign in", href: "/sign-in" },
+        { text: "Upload", href: "/upload" },
+    ];
+%>
+
+<ul class="navbar">
+    <% buttons.map((button) => { %>
+        <li>
+            <button 
+                type="button" 
+                class="button"
+                onclick="location.href = '<%= button.href %>'"
+                ><%= button.text %></button>
+        </li>
+    <% }); %>
+</ul>
