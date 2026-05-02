@@ -1,9 +1,16 @@
 import Controller from "./controller.js";
+import links from "./../data/links.js";
+import titles from "./../data/titles.js";
+import headers from "./../data/headers.js";
 
 const indexCon = new Controller(
     "index", 
     "/", 
-    { title: "Hi", header: "Hi" }
+    { 
+        title: titles.index, 
+        header: headers.index , 
+        links: links 
+    }
 );
 
-export { indexCon };
+export default indexCon ;
