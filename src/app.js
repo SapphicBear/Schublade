@@ -45,6 +45,11 @@ app.use(passport.session());
 app.use("/", index);
 app.use("/sign-up", signUp);
 
+app.use((error, req, res, next) => {
+    console.error(error);
+    res.status(error.statusCode || 500).send(error.message);
+});
+
 app.listen(PORT, (err) => {
     if (err) {
         throw err;
