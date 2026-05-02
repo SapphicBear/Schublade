@@ -8,7 +8,7 @@ import passport from "./passport.js";
 import prisma from "./../lib/prisma.js";
 
 import index from "./routes/index.js";
-
+import signUp from "./routes/sign-up.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -43,6 +43,7 @@ app.use(
 app.use(passport.session());
 
 app.use("/", index);
+app.use("/sign-up", signUp);
 
 app.listen(PORT, (err) => {
     if (err) {
