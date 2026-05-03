@@ -7,6 +7,7 @@ const content = {
     title: titles.index,
     header: headers.index, 
     links: links,
+    user: "",
 };
 
 const indexCon = new Controller("index", "/", content);

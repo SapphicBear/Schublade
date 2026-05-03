@@ -10,6 +10,10 @@ class Controller {
     }
 
     async get(req, res) {
+        this.content.user = req.user;
+        res.render(this.view, this.content);
+    }
+    async getDb(req, res) {
         res.render(this.view, this.content);
     }
     async getAuth(req, res) {

@@ -13,7 +13,12 @@
         <%- include("./partials/navbar.ejs"); %>
     </nav>
     <main>
-        
+        <% if (locals.user) { %>
+            <h2>Hello <%= user.name %></h2>
+        <% } else { %>
+            <h2>You are not logged in</h2>    
+        <% } %>
+
     </main>
     <footer>
         <%- include("./partials/footer.ejs", { links: links }); %>
