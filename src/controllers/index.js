@@ -4,7 +4,7 @@ import titles from "./../data/titles.js";
 import headers from "./../data/headers.js";
 
 const content = {
-    title: titles.index, 
+    title: titles.index,
     header: headers.index, 
     links: links,
 };
