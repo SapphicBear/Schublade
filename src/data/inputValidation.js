@@ -1,20 +1,36 @@
+import { body } from "express-validator";
 import errors from "./../data/errors.js";
 
 const inputValidation = {
-    signInValidation = [
+    signInValidation: [
         body("name")
             .trim()
             .escape()
             .notEmpty()
-            .withMessage(errors.name),
+            .withMessage(errors.length.name),
         body("password")
             .trim()
             .escape()
             .notEmpty()
-            .withMessage(errors.password),
+            .withMessage(errors.length.password),
     ],
-    signUpValidation = [
-
+    signUpValidation: [
+        body("username")
+            .trim()
+            .escape()
+            .notEmpty()
+            .withMessage(errors.length.name),
+        body("email")
+            .trim()
+            .isEmail()
+            .withMessage(errors.type.email)
+            .notEmpty()
+            .withMessage(errors.length.email),
+        body("password")
+            .trim()
+            .escape()
+            .notEmpty()
+            .withMessage(errors.length.password),
     ],
 };
 
