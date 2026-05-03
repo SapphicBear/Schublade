@@ -20,7 +20,7 @@ const signUpCon = {
     },
     async postUser(req, res, next) {
         if (req.user) {
-            res.statusCode(401).redirect("/");
+            res.status(401).redirect("/");
         }
         try {
             const hashedPassword = await bcrypt.hash(req.body.password, 10);
