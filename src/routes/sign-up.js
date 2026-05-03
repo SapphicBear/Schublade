@@ -3,6 +3,6 @@ import signUpCon from "./../controllers/sign-up-con.js";
 const signUp = Router();
 
 signUp.get("/", signUpCon.get);
-signUp.post("/", signUpCon.postUser);
+signUp.post("/", signUpCon.signUp);
 
 export default signUp;
