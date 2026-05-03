@@ -13,6 +13,9 @@ const inputValidation = {
             .notEmpty()
             .withMessage(errors.password),
     ],
+    signUpValidation = [
+
+    ],
 };
 
 export default inputValidation;
