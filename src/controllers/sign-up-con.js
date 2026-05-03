@@ -1,4 +1,5 @@
 import bcrypt from "bcryptjs";
+import prisma from "../../lib/prisma.js";
 import links from "./../data/links.js";
 import titles from "./../data/titles.js";
 import headers from "./../data/headers.js";
@@ -10,7 +11,6 @@ const content = {
     user: "",
 };
 
-// const signUpCon = new Controller("sign-up", "/", content);
 const signUpCon = {
     async get(req, res) {
         if (req.user) {

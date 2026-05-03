@@ -1,4 +1,4 @@
-import Controller from "./controller.js";
+import prisma from "../../lib/prisma.js";
 import links from "./../data/links.js";
 import titles from "./../data/titles.js";
 import headers from "./../data/headers.js";
@@ -10,7 +10,6 @@ const content = {
     user: "",
 };
 
-// const indexCon = new Controller("index", "/", content);
 const indexCon = {
     async get(req, res) {
         if (req.user) {
