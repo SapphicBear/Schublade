@@ -7,10 +7,7 @@ passport.use(
     new localStrategy( async (name, password, done) => {
         try {
             const { row } = await prisma.user.findUnique({
-                data: {
-                    name,
-                    password,
-                }
+                where: { name: name, password: password }
             }); // temp
             const user = rows[0];
             if (!user) {
