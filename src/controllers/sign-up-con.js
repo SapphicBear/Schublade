@@ -18,7 +18,7 @@ const signUpCon = {
         }
         res.render("sign-up", content);
     },
-    async postUser(req, res) {
+    async postUser(req, res, next) {
         if (req.user) {
             res.statusCode(401).redirect("/");
         }
