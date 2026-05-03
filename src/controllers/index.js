@@ -10,6 +10,15 @@ const content = {
     user: "",
 };
 
-const indexCon = new Controller("index", "/", content);
+// const indexCon = new Controller("index", "/", content);
+const indexCon = {
+    async get(req, res) {
+        if (req.user) {
+            content.user = req.user;
+        }
+        // Get files available
+        res.render("index", content);
+    },
+};
 
 export default indexCon;
