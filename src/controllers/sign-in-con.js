@@ -5,18 +5,13 @@ import { matchedData, validationResult, body } from "express-validator";
 import links from "./../data/links.js";
 import titles from "./../data/titles.js";
 import headers from "./../data/headers.js";
-
+import errors from "./../data/errors.js";
 const content = {
     title: titles.signIn,
     header: headers.signIn, 
     links: links,
 };
-const errors = {
-    length: {
-        name: "Username must be provided.",
-        password: "Password must be provided."
-    },
-};
+
 
 const signInValidation = [
     body("name")
