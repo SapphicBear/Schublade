@@ -9,6 +9,6 @@ const content = {
     links: links
 };
 
-const signUpCon = new Controller("sign-up", "/sign-in", content);
+const signUpCon = new Controller("sign-up", "/", content);
 
 export default signUpCon;

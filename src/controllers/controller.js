@@ -1,8 +1,12 @@
+import prisma from "./../../lib/prisma.js";
+import bcrypt from "bcryptjs";
+
 class Controller {
     constructor(view, redirect = "/", content = {}) {
         this.view = view;
         this.redirect = redirect;
         this.content = content;
+        
     }
 
     async get(req, res) {
@@ -15,8 +19,24 @@ class Controller {
             res.status(400).render(this.view, this.content);
         }
     }
-    async post(req, res) {
-        res.redirect(this.redirect);
+    async postUser(req, res, next) {
+        try {
+            const hashedPassword = await bcrypt.hash(req.body.password, 10);
+            const user = await prisma.user.create({
+                data: {
+                    name: req.body.username,
+                    email: req.body.email,
+                    password: hashedPassword,
+                    files: {
+                        create: [],
+                    },
+                },
+            });
+            res.redirect(this.redirect);
+        } catch (err) {
+            console.error(err);
+            next(err);
+        }
     }
     async update(req, res) {
         res.redirect(this.redirect);
