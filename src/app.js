@@ -9,6 +9,8 @@ import prisma from "./../lib/prisma.js";
 
 import index from "./routes/index.js";
 import signUp from "./routes/sign-up.js";
+import signIn from "./routes/sign-in.js";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -44,6 +46,7 @@ app.use(passport.session());
 
 app.use("/", index);
 app.use("/sign-up", signUp);
+app.use("/sign-in", signIn);
 
 app.use((error, req, res, next) => {
     console.error(error);

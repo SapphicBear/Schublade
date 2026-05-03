@@ -1,0 +1,8 @@
+import { Router } from "express";
+import signInCon from "./../controllers/sign-in-con.js";
+const signIn = Router();
+
+signIn.get("/", signInCon.get);
+signIn.post("/", signInCon.post);
+
+export default signIn;
