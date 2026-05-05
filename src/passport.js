@@ -4,14 +4,13 @@ import bcrypt from "bcryptjs";
 import prisma from "./../lib/prisma.js";
 
 passport.use(
-    new localStrategy( async (name, password, done) => {
+    new localStrategy({ usernameField: 'email', passwordField: 'password' }, async (email, password, done) => {
         try {
-            const { row } = await prisma.user.findUnique({
-                where: { name: name, password: password }
+            const user = await prisma.user.findUnique({
+                where: { email: email }
             }); // temp
-            const user = rows[0];
             if (!user) {
-                return done(null, false, { message: "Username not found." });
+                return done(null, false, { message: "Email not found." });
             }
             const match = await bcrypt.compare(password, user.password);
             if (!match) {
@@ -28,10 +27,9 @@ passport.serializeUser((user, done) => {
 });
 passport.deserializeUser(async (id, done) => {
     try {
-        const { rows } = await prisma.findUnique({
-            where: { id: parseInt(id) },
+        const user = await prisma.user.findUnique({
+            where: { id: id },
         });
-        const user = rows[0];
         done(null, user);
     } catch (err) {
         done(err);

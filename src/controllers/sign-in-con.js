@@ -12,6 +12,7 @@ const content = {
     title: titles.signIn,
     header: headers.signIn, 
     links: links,
+    errors: "",
 };
 
 const signInCon = {
@@ -26,11 +27,9 @@ const signInCon = {
         (req, res, next) => {
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
-                console.log("failure")
                 content.errors = errors.array();
                 res.status(400).render("sign-in", content);
             } else {
-                console.log("Hi")
                 req.body = matchedData(req);
                 passport.authenticate("local", {
                     successRedirect: "/",

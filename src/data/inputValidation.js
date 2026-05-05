@@ -3,11 +3,12 @@ import errors from "./../data/errors.js";
 
 const inputValidation = {
     signInValidation: [
-        body("name")
+        body("email")
             .trim()
-            .escape()
+            .isEmail()
+            .withMessage(errors.type.email)
             .notEmpty()
-            .withMessage(errors.length.name),
+            .withMessage(errors.length.email),
         body("password")
             .trim()
             .escape()
