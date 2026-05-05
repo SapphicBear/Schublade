@@ -15,6 +15,7 @@
     <main>
         <% if (locals.user) { %>
             <h2>Hello <%= user.name %></h2>
+            <button type="button" class="button" onclick="location.href='/logout'">Log out</button>
         <% } else { %>
             <h2>You are not logged in</h2>    
         <% } %>
