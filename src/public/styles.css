@@ -66,6 +66,7 @@ body {
     background: var(--black);
     color: var(--white);
     display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(min(100%, 15.625rem), 1fr)); */
     place-items: center;
     grid-template-rows: 100px 50px 1fr 100px;
 }
