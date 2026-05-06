@@ -43,14 +43,14 @@ app.use(
         )
     })
 );
-
+app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/", index);
 app.use("/sign-up", signUp);
 app.use("/sign-in", signIn);
 app.use("/upload", uploadRouter);
-app.use("/logout", logoutRoute);
+app.use("/log-out", logoutRoute);
 
 app.use((error, req, res, next) => {
     console.error(error);

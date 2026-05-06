@@ -11,16 +11,15 @@ const content = {
     header: headers.signUp,
     links: links,
     input: "",
-    errors: "",
-    user: "",
 };
 
 const signUpCon = {
     async get(req, res) {
         if (req.user) {
             res.redirect("/");
+        } else {
+            res.render("sign-up", content);
         }
-        res.render("sign-up", content);
     },
     signUp: [
         inputValidation.signUpValidation,

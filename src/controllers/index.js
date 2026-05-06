@@ -7,14 +7,11 @@ const content = {
     title: titles.index,
     header: headers.index, 
     links: links,
-    user: "",
 };
 
 const indexCon = {
     async get(req, res) {
-        if (req.user) {
-            content.user = req.user;
-        }
+        content.user = req.user;
         // Get files available
         res.render("index", content);
     },

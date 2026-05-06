@@ -19,8 +19,9 @@ const signInCon = {
     async get(req, res) {
         if (req.user) {
             res.status(401).redirect("/");
+        } else {
+            res.render("sign-in", content);    
         }
-        res.render("sign-in", content);
     },
     signIn: [
         inputValidation.signInValidation,
