@@ -1,10 +1,18 @@
 <%
-    const buttons = [
+    let buttons = [
         { text: "Home", href: "/" },
-        { text: "Sign up", href: "/sign-up" },
-        { text: "Sign in", href: "/sign-in" },
         { text: "Upload", href: "/upload" },
     ];
+    if (!locals.user) {
+        let additionalButtons = [
+        { text: "Sign up", href: "/sign-up" },
+        { text: "Sign in", href: "/sign-in" },
+        ];
+        buttons.splice(1, 1);
+        buttons = buttons.concat(additionalButtons)
+        
+    }
+    
 %>
 
 <ul class="navbar">

@@ -10,6 +10,7 @@ const content = {
 
 const uploadCon = {
     async get(req, res) {
+        content.user = req.user;
         res.render("upload", content);
     },
 };
