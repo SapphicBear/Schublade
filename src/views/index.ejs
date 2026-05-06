@@ -21,6 +21,7 @@
         <% if (!locals.user) { %>
             <h2>You are not logged in</h2>
         <% } %>
+        <%- include("./partials/files.ejs", { files: files }); %>
 
     </main>
     <footer>

@@ -12,6 +12,7 @@ const content = {
 const indexCon = {
     async get(req, res) {
         content.user = req.user;
+        content.files = "";
         // Get files available
         res.render("index", content);
     },

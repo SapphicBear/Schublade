@@ -1,0 +1,15 @@
+<h3 class="file-area">Files</h3>
+<ul class="files">
+    <% if (!locals.files) { %>
+        <li class="file">No files yet...</li>
+    <% } else { %>
+        <% files.map((file, i) => { %>
+            <li class="file <%= i %>">
+                <h4 class="name"><%= file.name %></h4>
+                <p>Date uploaded: <%= file.created %></p>
+                <p>Author: <%= file.user %></p>
+                <p>Type: <%= file.type %></p>
+            </li>
+       <% }); %>
+    <% } %>
+</ul>
