@@ -6,9 +6,7 @@ const content = {
     title: titles.upload,
     header: headers.upload,
     links: links,
-    input: "",
     errors: "",
-    user: "",
 };
 
 const uploadCon = {
