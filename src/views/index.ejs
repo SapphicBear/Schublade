@@ -12,15 +12,15 @@
     <nav>
         <%- include("./partials/navbar.ejs"); %>
     </nav>
-    <section class="user-area">
+    <aside class="user-area">
         <% if (locals.user) { %>
             <%- include("./partials/user-area"); %>
-        <% } else { %>
-                <h2>You are not logged in</h2>
         <% } %>
-    </section>
+        </aside>
     <main>
-
+        <% if (!locals.user) { %>
+            <h2>You are not logged in</h2>
+        <% } %>
 
     </main>
     <footer>
