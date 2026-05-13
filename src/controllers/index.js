@@ -11,10 +11,14 @@ const content = {
 
 const indexCon = {
     async get(req, res) {
-        content.user = req.user;
-        content.files = "";
-        // Get files available
-        res.render("index", content);
+        if (!req.user) {
+            res.redirect("/sign-in");
+        } else {
+            content.user = req.user;
+            content.files = "";
+            // Get files available
+            res.render("index", content);
+        }
     },
 };
 
