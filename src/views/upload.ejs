@@ -10,6 +10,9 @@
     <nav>
         <%- include("./partials/navbar.ejs") %>
     </nav>
+    <aside class="user-area">
+        <%- include("./partials/user-area.ejs"); %>
+    </aside>
     <main>
         <form action="/upload" method="post" enctype="multipart/form-data">
             <div class="form-row">
