@@ -5,6 +5,7 @@ const errors = {
     },
     type: {
         email: "Please provide a valid email address",
+        file: "Only .txt files are allowed.",
     },
 };
 
