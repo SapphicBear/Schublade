@@ -70,6 +70,13 @@ body {
     justify-items: center;
     grid-template-rows: 100px 50px 1fr 100px;
     grid-template-columns: 200px 1fr;
+    max-width: 1000px;
+    margin-inline: auto;
+    > * {
+        /* debug */
+        background: brown;
+        outline: red solid 2px;
+    }
 }
 header {
     grid-column: 2 / -1;
