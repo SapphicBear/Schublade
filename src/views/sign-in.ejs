@@ -7,22 +7,20 @@
     <header>
         <%- include("./partials/header.ejs", { header: header }); %>
     </header>
-    <nav>
-        <%- include("./partials/navbar.ejs"); %>
-    </nav>
+      
     <main aria-labelledby="main">
         <h2 id="main">Sign in</h2>
         <form action="/sign-in" method="post">
             <div class="form-row">
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" placeholder="Email..."/>
-                
             </div>
             <div class="form-row">
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password" placeholder="Password..."/>
             </div>
             <button type="submit" class="button">Submit</button>
+            <p>Don't have an account? <a href="/sign-up">Click here to sign up!</a></p>
         </form>
 
     </main>
