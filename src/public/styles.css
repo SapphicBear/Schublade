@@ -90,6 +90,7 @@ nav {
     grid-row: 2;
     align-content: center;
 }
+
 main {
     grid-column: 2 / -1;
     grid-row: 3 / 4;
@@ -99,10 +100,12 @@ main.index, main.upload {
     align-content: start;
     padding: 1rem;
 }
-.user-area {
-    display: grid;    grid-template-columns: subgrid;
+aside.user-area {
+    display: grid;
+    place-items: center;
+    grid-template-columns: subgrid;
     grid-template-rows: subgrid;
-    grid-column: 1 / 2;
+    grid-column: 1;
     grid-row: 1 / 4;
     padding: 1rem;
     > * {
@@ -110,7 +113,7 @@ main.index, main.upload {
     }
     > .button-area {
         grid-row: 2;
-        align-self: center;
+        align-self: start;
         display: flex;
         gap: 1rem;
     }
