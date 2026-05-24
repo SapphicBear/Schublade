@@ -64,15 +64,17 @@ li {
 
 body {
     padding-block: 1rem 0rem;
+    padding-inline: 1rem;
     min-height: 100vh;
     background: var(--black);
     color: var(--white);
     gap: 1rem;
     margin-inline: auto;
+    max-width: 1000px;
     display: grid;
     grid-template-rows: 100px 50px 1fr 100px;
-    grid-template-columns: 200px 1fr;
-    max-width: 1000px;
+    grid-template-columns: minmax(20ch, 1fr) 3fr;
+    
     > * {
         /* debug */
         background: brown;
@@ -114,7 +116,7 @@ aside.user-area {
     }
 }
 footer {
-    grid-column: 2 / -1;
+    grid-column: 1 / -1;
     grid-row: 4 ;
     align-content: center;
 }
@@ -124,9 +126,6 @@ footer {
     justify-content: center;
     gap: 1rem;
     
-}
-nav, main, header, footer {
-    width: clamp(18.75rem, 60vw, 80rem);
 }
 
 form {
