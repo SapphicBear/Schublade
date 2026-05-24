@@ -63,16 +63,16 @@ li {
 }
 
 body {
+    padding-block: 1rem 0rem;
     min-height: 100vh;
     background: var(--black);
     color: var(--white);
     gap: 1rem;
+    margin-inline: auto;
     display: grid;
-    justify-items: center;
     grid-template-rows: 100px 50px 1fr 100px;
     grid-template-columns: 200px 1fr;
     max-width: 1000px;
-    margin-inline: auto;
     > * {
         /* debug */
         background: brown;
@@ -85,8 +85,8 @@ header {
     align-content: center;
     text-align: center;
 }
+
 nav {
-    grid-column: 2 / -1;
     grid-row: 2;
     align-content: center;
 }
@@ -108,12 +108,7 @@ aside.user-area {
     grid-column: 1;
     grid-row: 1 / 4;
     padding: 1rem;
-    > * {
-        align-content: center;
-    }
     > .button-area {
-        grid-row: 2;
-        align-self: start;
         display: flex;
         gap: 1rem;
     }
@@ -123,13 +118,15 @@ footer {
     grid-row: 4 ;
     align-content: center;
 }
+
 .navbar {
     display: flex;
     justify-content: center;
     gap: 1rem;
+    
 }
-.navbar, main, header, footer {
-    width: clamp(18.75rem, 50vw, 80rem);
+nav, main, header, footer {
+    width: clamp(18.75rem, 60vw, 80rem);
 }
 
 form {
