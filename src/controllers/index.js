@@ -7,6 +7,7 @@ const content = {
     title: titles.index,
     header: headers.index, 
     links: links,
+    files: "",
 };
 
 const indexCon = {
@@ -15,7 +16,7 @@ const indexCon = {
             res.redirect("/sign-in");
         } else {
             content.user = req.user;
-            content.files = "";
+            console.log(content.files);
             // Get files available
             res.render("index", content);
         }

@@ -13,6 +13,10 @@ const uploadCon = {
         content.user = req.user;
         res.render("upload", content);
     },
+    async post(req, res) {
+        console.log(req.file);
+        res.redirect("/");
+    }
 };
 
 export default uploadCon;
