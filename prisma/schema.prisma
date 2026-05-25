@@ -14,6 +14,7 @@ model User {
   name        String?
   permissions Permission @default(Normal)
   files       File[]
+  folders     Folder[]
 }
 
 model Session {
@@ -31,6 +32,13 @@ model File {
   url     String?
   name    String
   user    User     @relation(fields: [userId], references: [id])
+}
+
+model Folder {
+  id     Int    @id @default(autoincrement())
+  userId Int
+  name   String @default("Home")
+  user   User   @relation(fields: [userId], references: [id])
 }
 
 enum Type {

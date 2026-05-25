@@ -17,7 +17,10 @@ const indexCon = {
             res.redirect("/sign-in");
         } else {
             content.user = req.user;
-            console.log(content.files);
+            content.folders = await prisma.folder.findMany({ where: { userId: req.user.id }});
+            content.files = await prisma.file.findMany({
+                where: { userId: req.user.id },
+            });
             // Get files available
             res.render("index", content);
         }

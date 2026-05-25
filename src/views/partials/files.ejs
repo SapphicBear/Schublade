@@ -1,6 +1,6 @@
 <h3 class="file-area">Files</h3>
 <ul class="files">
-    <% if (!locals.files) { %>
+    <% if (!files.length > 0) { %>
         <li class="file">No files yet...</li>
     <% } else { %>
         <% files.map((file, i) => { %>

@@ -46,8 +46,10 @@ const signUpCon = {
                             name: data.username,
                             email: data.email,
                             password: hashedPassword,
-                            files: {
-                                create: [],
+                            folders: {
+                                create: {
+                                    name: "Home",
+                                },
                             },
                         },
                     });
