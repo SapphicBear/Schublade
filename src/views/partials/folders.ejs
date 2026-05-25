@@ -1,0 +1,12 @@
+<h4>Folders</h4>
+
+<% if (locals.folders) { %>
+    <ul class="folders">
+        <% folders.map((folder, i) => { %>
+            <li class="folder<%= i %>"><a href="<%= folder.href %>"><%= folder.name %></a></li>
+        <% }); %>
+    </ul>
+<% } %>
+<form action="/new-folder" method="post">
+    <button type="submit">Add a folder</button>
+</form>

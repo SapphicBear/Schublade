@@ -8,6 +8,7 @@ const content = {
     header: headers.index, 
     links: links,
     files: "",
+    folders: "",
 };
 
 const indexCon = {
