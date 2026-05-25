@@ -28,7 +28,7 @@ model File {
   id      Int      @id @default(autoincrement())
   userId  Int
   created DateTime @default(now())
-  type    Type
+  type    String
   url     String?
   name    String
   user    User     @relation(fields: [userId], references: [id])
@@ -39,14 +39,6 @@ model Folder {
   userId Int
   name   String @default("Home")
   user   User   @relation(fields: [userId], references: [id])
-}
-
-enum Type {
-  Text
-  Image
-  Video
-  Audio
-  PDF
 }
 
 enum Permission {
