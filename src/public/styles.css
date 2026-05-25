@@ -60,15 +60,18 @@ li {
     --orange-alt: #E27E79;
     --green-alt: #727F89;
     --light-alt: #FAF1E0;
+    /* Other defaults */
+    --default-padding: 1rem;
+    --default-gap: 1rem;
 }
 
 body {
-    padding-block: 1rem 0rem;
-    padding-inline: 1rem;
+    padding-block: var(--default-padding) 0rem;
+    padding-inline: var(--default-padding);
     min-height: 100vh;
     background: var(--black);
     color: var(--white);
-    gap: 1rem;
+    gap: var(--default-gap);
     margin-inline: auto;
     max-width: 1000px;
     display: grid;
@@ -79,6 +82,17 @@ body {
         /* debug */
         background: brown;
         outline: red solid 2px;
+    }
+}
+body.sign-in, body.sign-up {
+    > header {
+        grid-column: 1 / -1;
+    } 
+    > main {
+        place-self: center;
+        padding: var(--default-padding);
+        grid-column: 1 / -1;
+        grid-row: 2 / span 2;
     }
 }
 header {
@@ -100,7 +114,7 @@ main {
 }
 main.index, main.upload {
     align-content: start;
-    padding: 1rem;
+    padding: var(--default-padding);
 }
 aside.user-area {
     display: grid;
@@ -109,10 +123,10 @@ aside.user-area {
     grid-template-rows: subgrid;
     grid-column: 1;
     grid-row: 1 / 4;
-    padding: 1rem;
+    padding: var(--default-padding);
     > .button-area {
         display: flex;
-        gap: 1rem;
+        gap: var(--default-gap);
     }
 }
 footer {
@@ -124,13 +138,13 @@ footer {
 .navbar {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: var(--default-gap);
     
 }
 
 form {
     display: grid;
-    gap: 1rem;
+    gap: var(--default-gap);
     > .form-row {
         display: grid;
     }

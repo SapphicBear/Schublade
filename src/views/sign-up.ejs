@@ -4,13 +4,10 @@
     <%- include("./partials/head.ejs", { title: title }); %>
     <script type="module" src="/frontend_js/sign-up.js" defer></script>
 </head>
-<body>
+<body class="sign-up">
     <header>
         <%- include("./partials/header.ejs", { header: header }); %>
     </header>
-    <nav>
-        <%- include("./partials/navbar.ejs"); %>
-    </nav>
     <main aria-labelledby="main">
         <h2 id="main">Make your new account</h2>
         <form action="/sign-up" method="post">
