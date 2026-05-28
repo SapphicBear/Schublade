@@ -12,7 +12,7 @@
     <nav>
         <%- include("./partials/navbar.ejs"); %>
     </nav>
-    <aside class="user-area">
+    <aside class="user-area" aria-label="user area">
         <% if (locals.user) { %>
             <%- include("./partials/user-area"); %>
         <% } %>
