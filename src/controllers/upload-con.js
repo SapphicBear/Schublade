@@ -12,7 +12,6 @@ const content = {
 
 const uploadCon = {
     async get(req, res) {
-        console.log(req.body)
         content.user = req.user;
         content.folders = await prisma.folder.findMany({
             where: {
