@@ -32,8 +32,8 @@ model File {
   url      String?
   name     String
   user     User     @relation(fields: [userId], references: [id])
-  folderId Int
-  folder   Folder   @relation(fields: [folderId], references: [id])
+  folderId Int?
+  folder   Folder?  @relation(fields: [folderId], references: [id])
 }
 
 model Folder {
