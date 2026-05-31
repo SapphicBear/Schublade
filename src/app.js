@@ -12,6 +12,7 @@ import signUp from "./routes/sign-up.js";
 import signIn from "./routes/sign-in.js";
 import uploadRouter from "./routes/upload.js";
 import logoutRoute from "./routes/logout.js";
+import folderRouter from "./routes/new-folder.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -51,6 +52,7 @@ app.use("/sign-up", signUp);
 app.use("/sign-in", signIn);
 app.use("/upload", uploadRouter);
 app.use("/log-out", logoutRoute);
+app.use("/new-folder", folderRouter);
 
 app.use((error, req, res, next) => {
     console.error(error);
