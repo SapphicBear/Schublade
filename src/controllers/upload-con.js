@@ -18,7 +18,6 @@ const uploadCon = {
     },
     async post(req, res) {
         console.log(req.file);
-        console.log(req.body.type)
         // upload file url to database
         await prisma.file.create({
             data: {
@@ -26,6 +25,7 @@ const uploadCon = {
                 userId: req.user.id,
                 type: req.file.mimetype,
                 url: req.file.path,
+                // folder: req.body.folder
             }
         });
         res.redirect("/");
