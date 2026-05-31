@@ -8,4 +8,9 @@
     </ul>
 <% } %>
 
-<button type="button" id="new-folder-button">New Folder</button>
+<button type="button" id="new-folder-button" command="show-modal" commandfor="add-folder-dialog">New Folder</button>
+
+<dialog id="add-folder-dialog">
+    <p>Add a new folder!</p>
+    <button commandfor="add-folder-dialog" command="close">Close</button>
+</dialog>
