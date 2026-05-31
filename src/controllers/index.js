@@ -9,6 +9,7 @@ const content = {
     links: links,
     files: "",
     folders: "",
+    currentFolder: "",
 };
 
 const indexCon = {
@@ -18,9 +19,17 @@ const indexCon = {
         } else {
             content.user = req.user;
             content.folders = await prisma.folder.findMany({ where: { userId: req.user.id }});
+            if (!req.params.id) {
             content.files = await prisma.file.findMany({
                 where: { userId: req.user.id },
             });
+            } else {
+                let folderId = parseInt(req.params.id);
+                
+                content.files = await prisma.file.findMany({
+                    where: { userId: req.user.id, folderId: folderId }
+                })
+            } 
             // Get files available
             res.render("index", content);
         }
