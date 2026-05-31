@@ -9,7 +9,6 @@ const content = {
     links: links,
     files: "",
     folders: "",
-    currentFolder: "",
 };
 
 const indexCon = {
@@ -18,17 +17,19 @@ const indexCon = {
             res.redirect("/sign-in");
         } else {
             content.user = req.user;
-            content.folders = await prisma.folder.findMany({ where: { userId: req.user.id }});
-            if (!req.params.id) {
-            content.files = await prisma.file.findMany({
-                where: { userId: req.user.id },
-            });
-            } else {
-                let folderId = parseInt(req.params.id);
+            content.folders = await prisma.folder.findMany(
+                { where: { userId: req.user.id }});
+            
+            if (req.params.folderId) {
+                let folderId = parseInt(req.params.folderId);
                 
                 content.files = await prisma.file.findMany({
                     where: { userId: req.user.id, folderId: folderId }
-                })
+                });
+            } else {
+                content.files = await prisma.file.findMany({
+                    where: { userId: req.user.id },
+                });
             } 
             // Get files available
             res.render("index", content);

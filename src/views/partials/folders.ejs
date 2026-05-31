@@ -3,7 +3,7 @@
 <% if (locals.folders) { %>
     <ul class="folders">
         <% folders.map((folder, i) => { %>
-            <li class="folder<%= i %>"><a href="<%= folder.id %>"><%= folder.name %></a></li>
+            <li class="folder<%= i %>"><a href="/folder/<%= folder.id %>"><%= folder.name %></a></li>
         <% }); %>
     </ul>
 <% } %>

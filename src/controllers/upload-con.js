@@ -12,18 +12,24 @@ const content = {
 
 const uploadCon = {
     async get(req, res) {
+        console.log(req.body)
         content.user = req.user;
-        content.folders = await prisma.folder.findMany({ where: { userId: req.user.id }});
+        content.folders = await prisma.folder.findMany({
+            where: {
+                userId: req.user.id,
+            }
+        })
         res.render("upload", content);
     },
     async post(req, res) {
-        console.log(req.file);
+        if (!req.user) {
+            return;
+        }
         const folderId = parseInt(req.body.folders);
         // upload file url to database
         await prisma.file.create({
             data: {
                 name: req.file.originalname,
-                author: req.user.name,
                 userId: req.user.id,
                 type: req.file.mimetype,
                 url: req.file.path,
