@@ -7,8 +7,11 @@
             <li class="file <%= i %>">
                 <h4 class="name"><%= file.name %></h4>
                 <p>Date uploaded: <%= file.created %></p>
-                <p>Author: <%= file.user %></p>
+                <p>Author: <%= user.name %></p>
                 <p>Type: <%= file.type %></p>
+                <% folders.map((folder) => { %>
+                    <p><%= folder.id === file.folderId ? "Folder: " + folder.name : ""%></p>
+                <% }); %>
             </li>
        <% }); %>
     <% } %>

@@ -16,21 +16,25 @@ const indexCon = {
         if (!req.user) {
             res.redirect("/sign-in");
         } else {
-            content.user = req.user;
             content.folders = await prisma.folder.findMany(
                 { where: { userId: req.user.id }});
-            
+            const query = await prisma.user.findFirst({
+                include: {
+                    files: true,
+                    folders: true,
+                },
+                where: {
+                    id: req.user.id
+                }
+            });
+            content.folders = query.folders;
+            content.files = query.files;
+            content.user = query;
+    
             if (req.params.folderId) {
                 let folderId = parseInt(req.params.folderId);
-                
-                content.files = await prisma.file.findMany({
-                    where: { userId: req.user.id, folderId: folderId }
-                });
-            } else {
-                content.files = await prisma.file.findMany({
-                    where: { userId: req.user.id },
-                });
-            } 
+                content.files = query.files.filter((file) => file.folderId == folderId)
+            }
             // Get files available
             res.render("index", content);
         }
