@@ -69,8 +69,6 @@ body {
     padding-block: var(--default-padding) 0rem;
     padding-inline: var(--default-padding);
     min-height: 100vh;
-    background: var(--black);
-    color: var(--white);
     gap: var(--default-gap);
     margin-inline: auto;
     max-width: 1000px;
@@ -78,10 +76,12 @@ body {
     grid-template-rows: 100px 50px 1fr 100px;
     grid-template-columns: minmax(20ch, 1fr) 3fr;
     
+    /* colors */
+    background-color: var(--green-alt);
+
     > * {
-        /* debug */
-        background: brown;
-        outline: red solid 2px;
+        background-color: var(--orange);
+        box-shadow: var(--black) 5px 5px 0px;
     }
 }
 body.sign-in, body.sign-up {
@@ -133,6 +133,7 @@ footer {
     grid-column: 1 / -1;
     grid-row: 4 ;
     align-content: center;
+    padding: var(--default-padding);
 }
 
 .navbar {
