@@ -10,9 +10,9 @@ const folderController = {
             data: {
                 name: req.body["folder-name"],
                 userId: req.user.id,
-            }
+            },
         });
         res.redirect("/");
-    }
-}
+    },
+};
 export default folderController;

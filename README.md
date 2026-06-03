@@ -14,4 +14,4 @@ This project was made for the [Odin Project's Node.js Backend Course](https://ww
 
 ---
 
-*No gen AI was used in the creation of this application. Write your own damn code.*
+_No gen AI was used in the creation of this application. Write your own damn code._

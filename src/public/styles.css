@@ -3,7 +3,9 @@
   https://www.joshwcomeau.com/css/custom-css-reset/
   with slight edits made by Me!
 */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 :root {
@@ -26,21 +28,35 @@ img {
     height: auto;
     vertical-align: middle;
     shape-margin: 1rem;
-
 }
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
     font: inherit;
 }
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     overflow-wrap: break-word;
 }
 p {
     text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     text-wrap: balance;
 }
-ul, li {
+ul,
+li {
     padding: 0;
     margin: 0;
 }
@@ -51,15 +67,15 @@ li {
     /* Custom colors */
     --white: rgb(246, 247, 255);
     --black: rgb(21, 21, 22);
-    --light: #FCF8E8;
-    --green: #94B49F;
-    --orange: #ECB390;
-    --red: #DF7861;
+    --light: #fcf8e8;
+    --green: #94b49f;
+    --orange: #ecb390;
+    --red: #df7861;
 
-    --red-alt: #D0384B;
-    --orange-alt: #E27E79;
-    --green-alt: #727F89;
-    --light-alt: #FAF1E0;
+    --red-alt: #d0384b;
+    --orange-alt: #e27e79;
+    --green-alt: #727f89;
+    --light-alt: #faf1e0;
     /* Other defaults */
     --default-padding: 1rem;
     --default-gap: 1rem;
@@ -75,7 +91,7 @@ body {
     display: grid;
     grid-template-rows: 100px 50px 1fr 100px;
     grid-template-columns: minmax(20ch, 1fr) 3fr;
-    
+
     /* colors */
     background-color: var(--green-alt);
 
@@ -84,10 +100,11 @@ body {
         box-shadow: var(--black) 5px 5px 0px;
     }
 }
-body.sign-in, body.sign-up {
+body.sign-in,
+body.sign-up {
     > header {
         grid-column: 1 / -1;
-    } 
+    }
     > main {
         place-self: center;
         padding: var(--default-padding);
@@ -112,7 +129,8 @@ main {
     grid-row: 3 / 4;
     align-content: center;
 }
-main.index, main.upload {
+main.index,
+main.upload {
     align-content: start;
     padding: var(--default-padding);
 }
@@ -131,7 +149,7 @@ aside.user-area {
 }
 footer {
     grid-column: 1 / -1;
-    grid-row: 4 ;
+    grid-row: 4;
     align-content: center;
     padding: var(--default-padding);
 }
@@ -140,7 +158,6 @@ footer {
     display: flex;
     justify-content: center;
     gap: var(--default-gap);
-    
 }
 
 form {
@@ -149,7 +166,7 @@ form {
     > .form-row {
         display: grid;
     }
-    >:last-child {
+    > :last-child {
         margin-top: 0.5rem;
     }
 }

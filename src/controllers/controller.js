@@ -6,7 +6,6 @@ class Controller {
         this.view = view;
         this.redirect = redirect;
         this.content = content;
-        
     }
 
     async get(req, res) {

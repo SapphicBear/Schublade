@@ -16,8 +16,8 @@ const uploadCon = {
         content.folders = await prisma.folder.findMany({
             where: {
                 userId: req.user.id,
-            }
-        })
+            },
+        });
         res.render("upload", content);
     },
     async post(req, res) {
@@ -32,11 +32,11 @@ const uploadCon = {
                 userId: req.user.id,
                 type: req.file.mimetype,
                 url: req.file.path,
-                folderId: folderId
-            }
+                folderId: folderId,
+            },
         });
         res.redirect("/");
-    }
+    },
 };
 
 export default uploadCon;

@@ -1,5 +1,5 @@
 // Client-side validation
-console.log("hello")
+console.log("hello");
 
 const email = document.getElementById("email");
 
@@ -9,6 +9,8 @@ email.addEventListener("input", (event) => {
         return;
     }
     if (!email.value.endsWith("@example.com")) {
-        email.setCustomValidity("Please enter a fake email address ending with '@example.com'!");
+        email.setCustomValidity(
+            "Please enter a fake email address ending with '@example.com'!"
+        );
     }
 });

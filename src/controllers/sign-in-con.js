@@ -7,10 +7,9 @@ import titles from "./../data/titles.js";
 import headers from "./../data/headers.js";
 import inputValidation from "../data/inputValidation.js";
 
-
 const content = {
     title: titles.signIn,
-    header: headers.signIn, 
+    header: headers.signIn,
     links: links,
     errors: "",
 };
@@ -20,7 +19,7 @@ const signInCon = {
         if (req.user) {
             res.status(401).redirect("/");
         } else {
-            res.render("sign-in", content);    
+            res.render("sign-in", content);
         }
     },
     signIn: [

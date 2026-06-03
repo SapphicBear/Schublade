@@ -63,5 +63,4 @@ const signUpCon = {
     ],
 };
 
-
 export default signUpCon;
