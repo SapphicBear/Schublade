@@ -5,7 +5,9 @@
     "main": "app.js",
     "scripts": {
         "dev": "nodemon ./src/app.js",
-        "start": "node ./src/app.js"
+        "start": "node ./src/app.js",
+        "check": "prettier . --check",
+        "write": "prettier . --write"
     },
     "repository": {
         "type": "git",
