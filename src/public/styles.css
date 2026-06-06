@@ -113,9 +113,14 @@ body.sign-up {
     }
 }
 .button {
+    border: var(--orange-alt) 2px solid;
     background-color: var(--light-alt);
     border-radius: 0.45rem;
     padding: 0.25rem;
+
+    &:hover {
+        background: rgb(225, 200, 255);
+    }
 }
 
 header {
