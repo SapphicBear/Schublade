@@ -112,6 +112,12 @@ body.sign-up {
         grid-row: 2 / span 2;
     }
 }
+.button {
+    background-color: var(--light-alt);
+    border-radius: 0.45rem;
+    padding: 0.25rem;
+}
+
 header {
     grid-column: 2 / -1;
     grid-row: 1;
