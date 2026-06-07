@@ -72,10 +72,14 @@ li {
     --orange: #ecb390;
     --red: #df7861;
 
+    --dark-red: hsl(0, 90%, 45%);
     --red-alt: #d0384b;
     --orange-alt: #e27e79;
     --green-alt: #727f89;
     --light-alt: #faf1e0;
+    --hover-color: lavender;
+    --hover-border: rebeccapurple;
+    --hover-text-color: hsl(255, 100%, 50%);
     /* Other defaults */
     --default-padding: 1rem;
     --default-gap: 1rem;
@@ -135,7 +139,7 @@ select {
     border-radius: 0.25rem;
     border: 2px solid var(--orange-alt);
     &:hover {
-        background: lavender;
+        background: var(--hover-color);
     }
 }
 .button {
@@ -145,8 +149,8 @@ select {
     padding: 0.25rem;
 
     &:hover {
-        background: lavender;
-        border-color: rebeccapurple;
+        background: var(--hover-color);
+        border-color: var(--hover-border);
     }
 }
 header {
@@ -216,10 +220,10 @@ form {
 .folders > li > a,
 .folders > li > svg {
     text-decoration: none;
-    color: hsl(0, 90%, 45%);
+    color: var(--dark-red);
     &:hover,
     &:focus {
         text-decoration: underline;
-        color: hsl(255, 100%, 50%);
+        color: var(--hover-text-color);
     }
 }

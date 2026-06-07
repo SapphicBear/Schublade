@@ -28,12 +28,18 @@ const indexCon = {
                     id: req.user.id,
                 },
             });
+            content.currentFolder = "";
             content.folders = query.folders;
             content.files = query.files;
             content.user = query;
 
             if (req.params.folderId) {
                 let folderId = parseInt(req.params.folderId);
+                content.currentFolder = await prisma.folder.findFirst({
+                    where: {
+                        id: folderId,
+                    },
+                });
                 content.files = query.files.filter(
                     (file) => file.folderId == folderId
                 );
