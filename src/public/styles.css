@@ -213,7 +213,8 @@ form {
     flex-direction: column;
     gap: 0.25em;
 }
-.folders > li > a {
+.folders > li > a,
+.folders > li > svg {
     text-decoration: none;
     color: hsl(0, 90%, 45%);
     &:hover,

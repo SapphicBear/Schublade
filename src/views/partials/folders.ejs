@@ -1,9 +1,9 @@
-<h4>Folders</h4>
 
+<h4>Folders</h4>
 <% if (locals.folders) { %>
     <ul class="folders">
         <% folders.map((folder, i) => { %>
-            <li class="folder<%= i %>"><a href="/folder/<%= folder.id %>"><%= folder.name %></a></li>
+        <li class="folder<%= i %>"><i class="fa-solid fa-folder-closed"></i><a href="/folder/<%= folder.id %>"><%= folder.name %></a></li>
         <% }); %>
     </ul>
 <% } %>
