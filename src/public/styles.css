@@ -207,3 +207,18 @@ form {
         margin-top: 0.5rem;
     }
 }
+
+.folders {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+.folders > li > a {
+    text-decoration: none;
+    color: hsl(0, 90%, 45%);
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+        color: hsl(255, 100%, 50%);
+    }
+}
