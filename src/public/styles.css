@@ -164,7 +164,11 @@ nav {
     grid-row: 2;
     align-content: center;
 }
-
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: var(--default-gap);
+}
 main {
     grid-column: 2 / -1;
     grid-row: 3 / 4;
@@ -176,42 +180,25 @@ main.upload {
     padding: var(--default-padding);
 }
 aside.user-area {
-    display: grid;
-    place-items: center;
-    grid-template-columns: subgrid;
-    grid-template-rows: subgrid;
+    display: flex;
+    flex-direction: column;
+    gap: var(--default-gap, 1rem);
+    align-items: center;
     grid-column: 1;
     grid-row: 1 / 4;
     padding: var(--default-padding);
     > .button-area {
+        margin-block-end: auto;
         display: flex;
         gap: var(--default-gap);
     }
 }
-footer {
-    grid-column: 1 / -1;
-    grid-row: 4;
-    align-content: center;
-    padding: var(--default-padding);
-}
-
-.navbar {
+.folder-area {
+    margin-block-end: auto;
     display: flex;
-    justify-content: center;
-    gap: var(--default-gap);
+    flex-direction: column;
+    gap: var(--default-gap, 1rem);
 }
-
-form {
-    display: grid;
-    gap: var(--default-gap);
-    > .form-row {
-        display: grid;
-    }
-    > :last-child {
-        margin-top: 0.5rem;
-    }
-}
-
 .folders {
     display: flex;
     flex-direction: column;
@@ -225,5 +212,26 @@ form {
     &:focus {
         text-decoration: underline;
         color: var(--hover-text-color);
+    }
+}
+.folders > li {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+footer {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    align-content: center;
+    padding: var(--default-padding);
+}
+form {
+    display: grid;
+    gap: var(--default-gap);
+    > .form-row {
+        display: grid;
+    }
+    > :last-child {
+        margin-top: 0.5rem;
     }
 }

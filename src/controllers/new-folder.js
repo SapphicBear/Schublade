@@ -2,7 +2,6 @@ import prisma from "../../lib/prisma.js";
 
 const folderController = {
     async post(req, res) {
-        console.log(req.body);
         if (!req.user) {
             return;
         }
