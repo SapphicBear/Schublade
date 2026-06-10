@@ -91,7 +91,7 @@ li {
     --dark-blue: #231c73;
     --light-blue: #dedeff;
     --hover-color: lavender;
-    --hover-border: rebeccapurple;
+    --hover-border: hsl(255, 50%, 50%);
     --hover-text-color: hsl(255, 100%, 50%);
     /* Other defaults */
     --default-padding: 1rem;
@@ -135,6 +135,10 @@ body.sign-up {
         grid-column: 1 / -1;
         grid-row: 2 / span 2;
     }
+}
+input,
+button {
+    outline-offset: 2px;
 }
 input[name="file"] {
     background: var(--light);
