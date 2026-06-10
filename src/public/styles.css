@@ -247,10 +247,23 @@ aside.user-area {
     flex-direction: column;
     gap: var(--default-gap, 1rem);
 }
+.folder-top {
+    display: flex;
+    justify-content: start;
+    gap: 0.5rem;
+    align-items: center;
+}
 .folders {
     display: flex;
     flex-direction: column;
     gap: 0.25em;
+}
+.add-button {
+    max-width: fit-content;
+    aspect-ratio: 1;
+    text-align: center;
+    font-weight: 700;
+    padding: 0.1rem 0.5rem;
 }
 .folders > li > a,
 .folders > li > svg {

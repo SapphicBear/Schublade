@@ -1,13 +1,7 @@
-<h4>Folders</h4>
-<% if (locals.folders) { %>
-    <ul class="folders">
-        <% folders.map((folder, i) => { %>
-        <li class="folder<%= i %>"><i class="fa-solid fa-folder-closed"></i><a href="/folder/<%= folder.id %>"><%= folder.name %></a></li>
-        <% }); %>
-    </ul>
-<% } %>
-
-<button class="button" type="button" id="new-folder-button" command="show-modal" commandfor="add-folder-dialog">New Folder</button>
+<div class="folder-top">
+    <h4>Folders</h4>
+    <button class="button add-button" type="button" id="new-folder-button" command="show-modal" commandfor="add-folder-dialog">+</button>
+</div>
 <dialog id="add-folder-dialog">
     <div class="dialog-wrapper stack">
     <h4>Add a new folder</h4>
@@ -21,3 +15,11 @@
     <button class="button" commandfor="add-folder-dialog" command="close">Close</button>
     </div>
 </dialog>
+
+<% if (locals.folders) { %>
+    <ul class="folders">
+        <% folders.map((folder, i) => { %>
+        <li class="folder<%= i %>"><i class="fa-solid fa-folder-closed"></i><a href="/folder/<%= folder.id %>"><%= folder.name %></a></li>
+        <% }); %>
+    </ul>
+<% } %>
