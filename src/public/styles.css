@@ -15,7 +15,7 @@
     margin: 0;
 }
 
-body {
+:root {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     min-block-size: 100vh;
@@ -82,14 +82,14 @@ li {
     --hover-text-color: hsl(255, 100%, 50%);
     /* Other defaults */
     --default-padding: 1rem;
-    --default-gap: 1rem;
+    --default-gap: 0.75rem;
 }
 
 body {
-    padding-block: var(--default-padding) 0rem;
+    padding-block: 0.75rem;
     padding-inline: var(--default-padding);
     min-height: 100vh;
-    gap: var(--default-gap);
+    gap: var(--default-gap, 1rem);
     margin-inline: auto;
     max-width: 1000px;
     display: grid;
@@ -97,10 +97,11 @@ body {
     grid-template-columns: minmax(20ch, 1fr) 3fr;
 
     /* colors */
-    background-color: var(--green-alt);
+    background-color: hsl(255, 10%, 60%);
 
     > * {
         background-color: var(--orange);
+        border-top-left-radius: 15px;
         box-shadow: var(--black) 5px 5px 0px;
     }
 }
