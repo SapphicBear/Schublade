@@ -12,15 +12,15 @@
         <h2 id="main">Make your new account</h2>
         <form action="/sign-up" method="post">
             <div class="form-row">
-                <label for="username">Username:</label>
+                <label for="username" id="required">Username:</label>
                 <input type="text" name="username" id="username" requried autocomplete="off" placeholder="Username..."/>
             </div>
             <div class="form-row">
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" autocomplete="off" placeholder="...@example.com"/>
+                <label for="email" id="required">Email:</label>
+                <input type="email" name="email" id="email" autocomplete="off" placeholder="...@example.com" required/>
             </div>
             <div class="form-row">
-                <label for="password">Password:</label>
+                <label for="password" id="required">Password:</label>
                 <input type="password" name="password" id="password" required autocomplete="off" placeholder="Password..."/>
             </div>
             <button type="submit" class="button">Submit</button>
