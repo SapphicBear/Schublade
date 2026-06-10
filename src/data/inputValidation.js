@@ -33,6 +33,13 @@ const inputValidation = {
             .notEmpty()
             .withMessage(errors.length.password),
     ],
+    folderNameValidation: [
+        body("folder-name")
+            .notEmpty()
+            .withMessage(errors.length.folder)
+            .trim()
+            .escape(),
+    ],
 };
 
 export default inputValidation;
