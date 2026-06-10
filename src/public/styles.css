@@ -77,6 +77,13 @@ li {
     --orange-alt: #e27e79;
     --green-alt: #727f89;
     --light-alt: #faf1e0;
+    --dark-pink: #e3245e;
+    --light-pink: #f29dae;
+    --light-pink-alt: #f55b79;
+    --shadow-pink: #66091c;
+    --dark-pink-alt: #42010f;
+    --purple: #8f0d47;
+    --dark-blue: #231c73;
     --hover-color: lavender;
     --hover-border: rebeccapurple;
     --hover-text-color: hsl(255, 100%, 50%);
@@ -97,13 +104,19 @@ body {
     grid-template-columns: minmax(20ch, 1fr) 3fr;
 
     /* colors */
-    background-color: hsl(255, 10%, 60%);
+    background-color: var(--dark-pink);
 
     > * {
-        background-color: var(--orange);
+        background-color: var(--light-pink);
         border-top-left-radius: 15px;
-        box-shadow: var(--black) 5px 5px 0px;
+        box-shadow: var(--purple) 5px 5px 0px;
     }
+}
+header,
+aside,
+main,
+footer {
+    color: var(--dark-pink-alt);
 }
 body.sign-in,
 body.sign-up {
@@ -144,7 +157,7 @@ select {
     }
 }
 .button {
-    border: var(--orange-alt) 2px solid;
+    border: var(--light-pink-alt) 2px solid;
     background-color: var(--light);
     border-radius: 0.45rem;
     padding: 0.25rem;
