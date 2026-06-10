@@ -9,11 +9,14 @@
 
 <button class="button" type="button" id="new-folder-button" command="show-modal" commandfor="add-folder-dialog">New Folder</button>
 <dialog id="add-folder-dialog">
+    <div class="dialog-wrapper stack">
     <h4>Add a new folder</h4>
-    <form action="/new-folder" method="post" class="dialog-form">
+    <form action="/new-folder" method="post" class="stack dialog-form">
     <label for="folder-name">Enter a folder name...</label>
-        <input type="text" name="folder-name" id="folder-name" placeholder="e.g. Videos..."/>
+        <input type="text" name="folder-name" id="folder-name" placeholder="e.g. Videos..." required/>
+
     <button id="dialog-submit" class="button" type="submit">Add</button>
     </form>
     <button class="button" commandfor="add-folder-dialog" command="close">Close</button>
+    </div>
 </dialog>
