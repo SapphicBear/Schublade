@@ -99,6 +99,8 @@ li {
 }
 
 body {
+    z-index: -1;
+    position: relative;
     padding-block: 0.75rem;
     padding-inline: var(--default-padding);
     min-height: 100vh;
@@ -294,5 +296,38 @@ form {
     }
     > :last-child {
         margin-top: 0.5rem;
+    }
+}
+
+.background {
+    z-index: -1;
+    max-height: 100vh;
+    max-width: 100vw;
+    position: absolute;
+    border-radius: unset;
+    left: 0;
+    top: 0;
+    box-shadow: unset;
+
+    > .square {
+        position: fixed;
+        aspect-ratio: 8;
+        width: 2000px;
+        top: 20rem;
+        left: -10rem;
+
+        transform: rotate(15deg);
+        background-color: limegreen;
+    }
+    > .two {
+        position: fixed;
+        z-index: -2;
+        aspect-ratio: 1;
+        width: 500px;
+        background-color: cornflowerblue;
+        transform: rotate(160deg);
+        right: -150px;
+        top: unset;
+        left: unset;
     }
 }
