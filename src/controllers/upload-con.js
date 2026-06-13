@@ -45,7 +45,8 @@ const uploadCon = {
             .getPublicUrl(`${req.file.originalname}`);
         await prisma.file.update({
             where: {
-                id: { req.params.file.id }
+                name: req.file.originalname ,
+                userId: req.user.id 
             },
             data: {
                 url: { fileURL.publicUrl }
