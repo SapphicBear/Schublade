@@ -2,6 +2,7 @@ import links from "./../data/links.js";
 import titles from "./../data/titles.js";
 import headers from "./../data/headers.js";
 import prisma from "../../lib/prisma.js";
+import {supabase} from "./../files/storageManager.js";
 
 const content = {
     title: titles.upload,
@@ -26,12 +27,19 @@ const uploadCon = {
         }
         const folderId = parseInt(req.body.folders);
         // upload file url to database
-        await prisma.file.create({
+        const handleUpload = async (file) => {
+            const { data, error } = await supabase.storage
+            .from("files")
+            .upload(file.originalname, file);
+            return URL.createObjectURL(file.originalname)
+        }
+            const fileURL = await handleUpload(req.file);
+                await prisma.file.create({
             data: {
                 name: req.file.originalname,
                 userId: req.user.id,
                 type: req.file.mimetype,
-                url: req.file.path,
+                url: ,
                 folderId: folderId,
             },
         });
