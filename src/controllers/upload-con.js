@@ -54,7 +54,7 @@ const uploadCon = {
         };
         try {
             await handleUpload();
-            const { fileUrl } = await supabase.storage
+            const { fileUrl } = supabase.storage
                 .from("Files")
                 .getPublicUrl(`${req.file.originalname}`);
             await handleUpdate();
