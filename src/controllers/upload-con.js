@@ -29,9 +29,16 @@ const uploadCon = {
         // upload file url to database
         const handleUpload = async (file) => {
             const { data, error } = await supabase.storage
-                .from("files")
+                .from("Files")
                 .upload(file.originalname, file);
-            return URL.createObjectURL(file.originalname);
+            if (error) {
+                console.error(error);
+                return;
+            }
+            const { fileURL } = supabase.storage
+                .from("Files")
+                .getPublicURL(file.originalname);
+            return fileURL.publicUrl;
         };
         const fileURL = await handleUpload(req.file);
         await prisma.file.create({
