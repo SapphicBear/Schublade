@@ -43,13 +43,14 @@ const uploadCon = {
         const { fileURL } = supabase.storage
             .from("Files")
             .getPublicUrl(`${req.file.originalname}`);
+        console.log(fileURL);
         await prisma.file.update({
             where: {
                 name: req.file.originalname,
                 userId: req.user.id,
             },
             data: {
-                url: fileURL.publicUrl,
+                url: fileURL,
             },
         });
         res.redirect("/");
