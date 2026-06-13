@@ -2,6 +2,7 @@ import prisma from "../../lib/prisma.js";
 import links from "./../data/links.js";
 import titles from "./../data/titles.js";
 import headers from "./../data/headers.js";
+import { supabase } from "./../../files/storageManager.js";
 
 const content = {
     title: titles.index,
@@ -52,14 +53,15 @@ const indexCon = {
         res.render("index", content);
     },
     async deleteFile(req, res) {
-        console.log(req.params);
         await prisma.file.deleteMany({
             where: {
                 userId: req.user.id,
                 id: parseInt(req.params.fileId),
             },
         });
-
+        const { data, error } = await supabase.storage
+            .from("Files")
+            .remove([`${req.file.originalname}`]);
         res.redirect("/");
     },
 };
