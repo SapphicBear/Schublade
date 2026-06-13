@@ -4,6 +4,8 @@ Schublade is a file sharing and downloading application that allows users to log
 
 This project was made for the [Odin Project's Node.js Backend Course](https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs).
 
+## See it running [here!](https://schublade-production.up.railway.app/)
+
 ## Technologies
 
 - Prisma ORM
