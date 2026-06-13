@@ -27,21 +27,30 @@ const uploadCon = {
         }
         const folderId = parseInt(req.body.folders);
         // upload file url to database
-        const { data, error } = await supabase.storage
-            .from("Files")
-            .upload(req.file.originalname, req.file);
+        const handleUpload = async () => {
+            const { data, error } = await supabase.storage
+                .from("Files")
+                .upload(req.file.originalname, req.file);
+            await prisma.file.create({
+                data: {
+                    name: req.file.originalname,
+                    userId: req.user.id,
+                    type: req.file.mimetype,
+                    folderId: folderId,
+                },
+            });
+        };
         const { fileURL } = supabase.storage
             .from("Files")
             .getPublicUrl(`${req.file.originalname}`);
-        await prisma.file.create({
-            data: {
-                name: req.file.originalname,
-                userId: req.user.id,
-                type: req.file.mimetype,
-                url: fileURL.publicUrl,
-                folderId: folderId,
+        await prisma.file.update({
+            where: {
+                id: { req.params.file.id }
             },
-        });
+            data: {
+                url: { fileURL.publicUrl }
+            }
+        })
         res.redirect("/");
     },
 };
