@@ -45,13 +45,13 @@ const uploadCon = {
             .getPublicUrl(`${req.file.originalname}`);
         await prisma.file.update({
             where: {
-                name: req.file.originalname ,
-                userId: req.user.id 
+                name: req.file.originalname,
+                userId: req.user.id,
             },
             data: {
-                url: { fileURL.publicUrl }
-            }
-        })
+                url: fileURL.publicUrl,
+            },
+        });
         res.redirect("/");
     },
 };
