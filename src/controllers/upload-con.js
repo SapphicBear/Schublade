@@ -27,15 +27,6 @@ const uploadCon = {
         }
         const folderId = parseInt(req.body.folders);
         // upload file url to database
-        const handleUpload = async (file) => {
-            const { data, error } = await supabase.storage
-                .from("Files")
-                .upload(file.originalname, file);
-            if (error) {
-                console.error(error);
-                return;
-            }
-        };
         const { data, error } = await supabase.storage
             .from("Files")
             .upload(req.file.originalname, req.file);
