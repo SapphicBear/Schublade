@@ -4,4 +4,6 @@ const index = Router();
 
 index.get("/", indexCon.get);
 index.get("/folder/:folderId", indexCon.get);
+index.get("/file/:fileName", indexCon.getFile);
+index.get("/delete/:folderId/:fileId", indexCon.deleteFile);
 export default index;

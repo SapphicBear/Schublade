@@ -48,6 +48,20 @@ const indexCon = {
             res.render("index", content);
         }
     },
+    async getFile(req, res) {
+        res.render("index", content);
+    },
+    async deleteFile(req, res) {
+        console.log(req.params);
+        await prisma.file.deleteMany({
+            where: {
+                userId: req.user.id,
+                id: parseInt(req.params.fileId),
+            },
+        });
+
+        res.redirect("/");
+    },
 };
 
 export default indexCon;

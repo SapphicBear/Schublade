@@ -16,6 +16,8 @@
                 <% folders.map((folder) => { %>
                     <p><%= folder.id === file.folderId ? "Folder: " + folder.name : ""%></p>
                 <% }); %>
+                <a href="/file/<%= file.name %>" download="<%= file.name %>" >Click here to download</a>
+                <a href="/delete/<%= file.folderId%>/<%= file.id %>">Delete file</a>
             </li>
        <% }); %>
     <% } %>
