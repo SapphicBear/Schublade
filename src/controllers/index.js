@@ -50,9 +50,16 @@ const indexCon = {
         }
     },
     async getFile(req, res) {
+        if (!req.user) {
+            res.redirect("/sign-in");
+        }
         res.render("index", content);
     },
     async deleteFile(req, res) {
+        if (!req.user) {
+            res.redirect("/sign-in");
+            return;
+        }
         await prisma.file.deleteMany({
             where: {
                 userId: req.user.id,
