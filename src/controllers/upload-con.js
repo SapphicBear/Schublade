@@ -37,11 +37,7 @@ const uploadCon = {
             }
             const { fileURL } = supabase.storage
                 .from("Files")
-<<<<<<< HEAD
-                .getPublicURL(file.originalname);
-=======
                 .getPublicUrl(file.originalname);
->>>>>>> 26939b4 (get public url for files)
             return fileURL.publicUrl;
         };
         const fileURL = await handleUpload(req.file);
