@@ -61,7 +61,7 @@ const indexCon = {
         });
         const { data, error } = await supabase.storage
             .from("Files")
-            .remove([`${req.params.fileName}`]);
+            .remove([req.params.fileName]);
         res.redirect("/");
     },
 };

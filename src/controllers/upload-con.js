@@ -35,18 +35,19 @@ const uploadCon = {
                 console.error(error);
                 return;
             }
-            const { fileURL } = supabase.storage
-                .from("Files")
-                .getPublicUrl(file.originalname);
-            return fileURL.publicUrl;
         };
-        const fileURL = await handleUpload(req.file);
+        const { data, error } = await supabase.storage
+            .from("Files")
+            .upload(req.file.originalname, req.file);
+        const { fileURL } = supabase.storage
+            .from("Files")
+            .getPublicUrl(`${req.file.originalname}`);
         await prisma.file.create({
             data: {
                 name: req.file.originalname,
                 userId: req.user.id,
                 type: req.file.mimetype,
-                url: fileURL,
+                url: fileURL.publicUrl,
                 folderId: folderId,
             },
         });
