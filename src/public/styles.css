@@ -331,3 +331,6 @@ form {
         left: unset;
     }
 }
+hr {
+    color: inherit;
+}
