@@ -2,7 +2,7 @@ import links from "./../data/links.js";
 import titles from "./../data/titles.js";
 import headers from "./../data/headers.js";
 import prisma from "../../lib/prisma.js";
-import { supabase } from "./../files/storageManager.js";
+import { supabase } from "./../../files/storageManager.js";
 
 const content = {
     title: titles.upload,
